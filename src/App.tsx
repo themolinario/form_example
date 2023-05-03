@@ -3,7 +3,7 @@ import "./App.css";
 import { Box, Container } from "@mui/material";
 import { FieldValues, useForm } from "react-hook-form";
 
-function App() {
+function App(): JSX.Element {
   const {
     register,
     handleSubmit,
@@ -83,7 +83,7 @@ function App() {
               {errors.password?.type === "pattern" && (
                 <p style={{ color: "red" }}>Minimo un numero ed una lettera maiuscola</p>
               )}
-              
+
               <h3>Conferma Password</h3>
               <input
                 type="password"
