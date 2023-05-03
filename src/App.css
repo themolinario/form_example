@@ -2,9 +2,21 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.questionContainer{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+  background-color: #61dafb;
+  border-radius: 5px;
+  align-items: center;
+  margin-bottom: 8px;
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
