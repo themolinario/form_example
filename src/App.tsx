@@ -4,8 +4,8 @@ import {Box, Container} from "@mui/material";
 import {FieldValues, useForm, ValidationRule} from "react-hook-form";
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+
+
 
 /*type RegistrationProps = Yup.ObjectSchema <{
     nome: string;
