@@ -3,13 +3,22 @@ import "./App.css";
 import { Box, Container } from "@mui/material";
 import { FieldValues, useForm } from "react-hook-form";
 
+interface IUserForm {
+  nome: string;
+  cognome: string;
+  email: string;
+  emailConfirm: string;
+  password: string;
+  passwordConfirm: string;
+}
+
 function App(): JSX.Element {
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm();
+  } = useForm<IUserForm>();
 
   const [posted, setPosted] = useState(false);
 
