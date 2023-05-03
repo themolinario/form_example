@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Box, Container } from "@mui/material";
 import { FieldValues, useForm } from "react-hook-form";
@@ -17,15 +17,9 @@ function App(): JSX.Element {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm<IUserForm>();
 
   const [posted, setPosted] = useState(false);
-
-  const email = useRef({});
-  email.current = watch("email", "");
-  const password = useRef("");
-  password.current = watch("password", "");
 
   function onSubmit(data: FieldValues): void {
     console.log(data);
@@ -69,7 +63,7 @@ function App(): JSX.Element {
                 placeholder="Inserire email.."
                 {...register("emailConfirm", {
                   required: true,
-                  validate: (value, formValues) => value === email.current,
+                  validate: (value, formValues) => value === formValues.email,
                 })}
               />
               {errors.emailConfirm?.type === "required" && <p style={{ color: "red" }}>Confermare l'email</p>}
@@ -99,7 +93,7 @@ function App(): JSX.Element {
                 placeholder="Inserire password.."
                 {...register("passwordConfirm", {
                   required: true,
-                  validate: (value) => value === password.current,
+                  validate: (value, formValues) => value === formValues.password,
                 })}
               />
               {errors.passwordConfirm?.type === "required" && (
