@@ -33,23 +33,32 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <Container maxWidth="md">
+        <h1>USER FORM</h1>
+
         <Box className="formContainer">
           <form onSubmit={handleSubmit(onSubmit, onError)}>
             <Box className="questionContainer">
-              <h3>Nome:</h3>
-              <input type="string" placeholder="Inserire nome.." {...register("nome", { required: true })} />
+              <label htmlFor="name">Nome:</label>
+              <input
+                id="name"
+                type="string"
+                placeholder="Inserire nome.."
+                {...register("nome", { required: true })}
+              />
               {errors.nome?.type === "required" && <p style={{ color: "red" }}>Inserire il nome</p>}
 
-              <h3>Cognome:</h3>
+              <label htmlFor="cognome">Cognome:</label>
               <input
+                id="cognome"
                 type="string"
                 placeholder="Inserire cognome.."
                 {...register("cognome", { required: true })}
               />
               {errors.cognome?.type === "required" && <p style={{ color: "red" }}>Inserire il cognome</p>}
 
-              <h3>E-mail:</h3>
+              <label htmlFor="email">E-mail:</label>
               <input
+                id="email"
                 type="email"
                 placeholder="Inserire email.."
                 {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
@@ -57,8 +66,9 @@ function App(): JSX.Element {
               {errors.email?.type === "required" && <p style={{ color: "red" }}>Inserire l'email</p>}
               {errors.email?.type === "pattern" && <p style={{ color: "red" }}>Pattern errato</p>}
 
-              <h3>Conferma E-mail:</h3>
+              <label htmlFor="emailConfirm">Conferma E-mail:</label>
               <input
+                id="emailConfirm"
                 type="email"
                 placeholder="Inserire email.."
                 {...register("emailConfirm", {
@@ -71,8 +81,9 @@ function App(): JSX.Element {
                 <p style={{ color: "red" }}>L'email di conferma non è corrispondente</p>
               )}
 
-              <h3>Password:</h3>
+              <label htmlFor="password">Password:</label>
               <input
+                id="password"
                 type="password"
                 placeholder="Inserire password.."
                 {...register("password", {
@@ -87,8 +98,9 @@ function App(): JSX.Element {
                 <p style={{ color: "red" }}>Minimo un numero ed una lettera maiuscola</p>
               )}
 
-              <h3>Conferma Password</h3>
+              <label htmlFor="passwordConfirm">Conferma Password</label>
               <input
+                id="passwordConfirm"
                 type="password"
                 placeholder="Inserire password.."
                 {...register("passwordConfirm", {
@@ -103,8 +115,10 @@ function App(): JSX.Element {
                 <p style={{ color: "red" }}>La password di conferma non è corrispondente</p>
               )}
             </Box>
-            <input type="submit" />
-            {posted && <h3>Registrazione correttamente effettuata</h3>}
+
+            <button type="submit">SUBMIT</button>
+
+            {posted && <h2>Registrazione correttamente effettuata</h2>}
           </form>
         </Box>
       </Container>
